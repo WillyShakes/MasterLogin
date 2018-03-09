@@ -42,7 +42,8 @@ Remember to replace PRODUCT_BUNDLE_IDENTIFIER with your actual application's bun
 http://{DOMAIN}/android/{YOUR_APP_PACKAGE_NAME}/callback
 ```
 Remember to replace YOUR_APP_PACKAGE_NAME with your actual application's package name and DOMAIN with your domain.
-6. Set Credentials in the project you cloned before at step 2
+
+6. Set Credentials in the project you cloned before at step 2.
 
   You need to set credentials for each platform you are supporting.
     
