@@ -10,8 +10,8 @@ Masterlogin contains platform-specific elements for Android and iOS.
         * Disk Space: Windows - 400 MB, MacOs - 700 MB, Linux - 600 MB
         * Tools: Windows (git), MacOs-Linux (bash, mkdir, rm, git, curl, unzip, which)
     * Get the Flutter SDK
-To get Flutter, use git to clone the repository and then add the flutter tool to your path.
-    * run "flutter doctor" on command prompt.
+To get Flutter, use git to clone this [repository](https://github.com/flutter/flutter) and then add the flutter tool (path\to\flutter\bin) to your computer path.
+    * run "flutter doctor" on command prompt or POWER SHELL.
     Running flutter doctor shows any remaining dependencies you may need to install.
     * iOS setup
         - Install Xcode
