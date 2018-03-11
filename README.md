@@ -106,8 +106,44 @@ Then, run pod install.
 
 This step is already done for you in the build.gradle file of the Android application.
 
-8. MasterLogin can be run like any other Flutter app, either through IntelliJ, Android Studio, Visual Studio Code or
- through running the following command from within the masterlogin directory:
+8. Configure Firebase 
+
+You'll need to create a Firebase instance. Follow the instructions at https://console.firebase.google.com.
+
+**Android**
+
+Create an app within your Firebase instance for Android, with package name com.example.masterlogin
+
+Run the following command to get your signing certificate SHA-1:
+
+```
+keytool -exportcert -list -v \
+-alias androiddebugkey -keystore ~/.android/debug.keystore
+```
+
+In the Firebase console, in the settings of your Android app, add your signing certificate SHA-1.
+Follow instructions to download google-services.json and place it into \masterlogin\android\app.
+
+**Ios**
+
+Create an app within your Firebase instance for iOS, with bundle ID io.flutter.flutter.app
+Follow instructions to download GoogleService-Info.plist, and place it into  \masterlogin\ios\Runner in XCode.
+
+Open a terminal window and navigate to the location of the Xcode project for your app.
+Create a Podfile if you don't have one:
+```
+pod init
+```
+Open your Podfile and add:
+```
+pod 'Firebase/Core'
+```
+Save the file and run:
+```
+pod install
+```
+
+9. MasterLogin can be run like any other Flutter app, either through IntelliJ, Android Studio, Visual Studio Code or through running the following command from within the masterlogin directory:
 
 ```
 flutter run
