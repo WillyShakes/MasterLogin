@@ -35,5 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name="com.flutter_webview_plugin.WebviewActivity"
+            android:parentActivityName=".MainActivity"> </activity>
     </application>
 </manifest>
