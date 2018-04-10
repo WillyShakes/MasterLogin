@@ -39,7 +39,7 @@ class LoginScreen extends StatefulWidget{
 class _LoginScreenState extends State<LoginScreen> implements LoginViewContract {
   LoginPresenter _presenter;
   bool _IsLoading;
-  String token;
+  bool Logged = false;
   final reference = FirebaseDatabase.instance.reference().child('quotes');
   GlobalKey<ScaffoldState> _scaffoldKey;
 
@@ -71,10 +71,10 @@ class _LoginScreenState extends State<LoginScreen> implements LoginViewContract 
   }
 
   @override
-  void onLoginScuccess(String t) {
+  void onLoginScuccess() {
     setState(() {
       _IsLoading = false;
-      token = t;
+      Logged = true;
     });
     showInSnackBar('Login successful');
   }
@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> implements LoginViewContract 
               child: new CircularProgressIndicator()
           )
       );
-    } else if(token != null){
+    } else if(Logged){
       widget = new Padding(
         padding: new EdgeInsets.all(32.0),
         child: new Column(children: <Widget>[

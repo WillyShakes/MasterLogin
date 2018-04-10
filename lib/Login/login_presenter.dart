@@ -1,29 +1,27 @@
 import 'package:flutter/services.dart';
-import 'package:firebase_database/firebase_database.dart';
+import 'package:masterlogin/Utils/auth0.dart' as auth0;
+import 'package:masterlogin/Utils/constants.dart';
 
 abstract class LoginViewContract {
-  void onLoginScuccess(String msg);
+  void onLoginScuccess();
   void onLoginError(String message);
 }
 
 class LoginPresenter {
   LoginViewContract _view;
   LoginPresenter(this._view);
-  static const platform = const MethodChannel('masterlogin/login');
 
   void perform_login() {
     assert(_view != null);
-    try {
-      platform.invokeMethod('login').then((result) {
-        if(result != "false") {
-          _view.onLoginScuccess('Congratulations, you are in. ' + result);
-        }
-        else
-          _view.onLoginError('Error');
-      });
-
-    } on PlatformException catch (e) {
-      _view.onLoginError("Failed to login: '${e.message}'.");
-    }
+    auth0.getToken(constants.APP_DOMAIN,constants.APP_ID,constants.APP_SECRET).then((res)
+    {
+      print("res: "+res);
+      if (res == "success") {
+        _view.onLoginScuccess();
+      }
+      else {
+        _view.onLoginError("Failed to login: $res");
+      }
+    });
   }
 }
