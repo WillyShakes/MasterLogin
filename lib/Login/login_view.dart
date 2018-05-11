@@ -72,17 +72,20 @@ class _LoginScreenState extends State<LoginScreen> implements LoginViewContract 
 
   @override
   void onLoginScuccess() {
+    showInSnackBar('Login successful');
     setState(() {
       _IsLoading = false;
       Logged = true;
+      print("onLoginScuccess");
     });
-    showInSnackBar('Login successful');
   }
 
 
   @override
   Widget build(BuildContext context) {
     var widget;
+    print("_IsLoading: $_IsLoading");
+    print("Logged: $Logged");
     if(_IsLoading) {
       widget = new Center(
           child: new Padding(
